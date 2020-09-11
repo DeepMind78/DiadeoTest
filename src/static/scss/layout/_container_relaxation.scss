@@ -1,0 +1,109 @@
+.container-relaxation{
+    padding-top: 10vh;
+    display: flex;
+    width: 70%;
+    // height: 600px;
+    margin:0 auto;
+    justify-content: center;
+    position: relative;
+    max-width: 1262px;
+    height: 110vh;
+    max-height: 700px;
+    .container-titles{
+        max-width: 264px;
+        line-height: 1.8rem;
+    }
+    .images{
+        position: relative;
+        width: 60%;
+        .first-img{
+            width:100%;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+        }
+        img:last-of-type{
+            position: absolute;
+            object-fit: cover;
+            margin-left: auto;
+            top: 50%;
+            left: -90%;
+            width: 135%;
+            // max-width: 390px;
+            max-height: 270px;
+        }
+    }
+}
+
+.container-relaxation-infos{
+    display: flex;
+    flex-direction: column;
+    width: 59%;
+    align-items: center;
+    text-align: center;
+    img{
+        max-height: 151px;
+        width: 39%;
+        object-fit: cover;
+        margin-left: auto;
+    }
+    &>*{
+      padding-top:7%;  
+    }
+}
+
+@include between(1050, 1200){
+    .container-relaxation{
+        width: 80%;
+    }
+}
+
+@include down(960){
+    .container-relaxation{
+        max-height: 660px;
+    }
+}
+
+@include up(960){
+    .container-relaxation{
+        max-height: 900px;
+    }
+}
+@include down(740){
+    .container-relaxation .images img:last-of-type{
+        display: none;
+    }
+}
+
+@include down(676){
+    .container-relaxation{
+
+        width: 90%;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        padding-top: 0;
+        .images{
+            width: 100%;
+        }
+        
+    }
+    .container-relaxation .images img:last-of-type{
+        display: none;
+    }
+    .container-relaxation-infos > * {
+        padding-top: 20px;
+    }
+    .container-relaxation-infos{
+        margin-bottom: 10px;
+    }
+    .container-paragraph{
+        width: 100%;
+    }
+}
+
+@include heightDown(400){
+    .container-relaxation .images img:last-of-type{
+        display: none;
+    }
+}

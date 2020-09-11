@@ -1,0 +1,32 @@
+$primary : #93a446;
+// $font-container : 'linotype_didotroman';
+// $font-header : 'brandon_grotesquelight';
+
+
+// font-family: 'avant_gardedemiregular';
+// font-family: 'brandon_grotesquelight';
+// font-family: 'brandon_grotesquemedium';
+//     font-style: normal;
+// font-family: 'linotype_didotroman';
+
+// sass --watch static/scss/main.scss static/dist/css/main.css
+
+@import "tools/mixins.scss";
+@import "tools/reset.scss";
+
+html{
+    overflow: visible !important;
+}
+body{
+    font-family: 'brandon_grotesquelight';
+    background-color: #f9f9f9;
+    overflow: visible !important;
+}
+
+
+@import "layout/nav.scss";
+@import "layout/header.scss";
+@import "layout/container-reveil.scss";
+@import "layout/container_relaxation.scss";
+@import "layout/cards.scss";
+@import "layout/footer.scss";
