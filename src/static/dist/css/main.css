@@ -113,6 +113,49 @@ body {
   overflow: visible !important;
 }
 
+.loading::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background: #f7f9f0;
+  opacity: 1;
+  z-index: 1000000;
+}
+
+.loading-logo {
+  animation: opacity 3s infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  z-index: 10000001;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+.lazy {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.fade {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
 header {
   position: relative;
 }
@@ -197,6 +240,146 @@ header {
     height: auto;
   }
 }
+.navigation {
+  background-color: #f7f9f0;
+  height: 20vh;
+  max-height: 100px;
+  padding: 0px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  position: sticky;
+  top: -1px;
+  z-index: 1000000;
+  opacity: 0.9;
+}
+
+.menu-icon {
+  height: 30px;
+  width: 30px;
+  z-index: 2;
+  cursor: pointer;
+  z-index: 101;
+}
+.menu-icon__line {
+  height: 2px;
+  width: 30px;
+  display: block;
+  background-color: #685648;
+  margin-bottom: 4px;
+  transition: transform 0.2s ease, background-color 0.5s ease;
+}
+.menu-icon__line-left {
+  width: 15px;
+}
+.menu-icon__line-right {
+  width: 15px;
+  float: right;
+}
+
+.navTest {
+  top: 0;
+  position: fixed;
+  z-index: 100;
+}
+.navTest:before, .navTest:after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(147, 164, 70, 0.2);
+  z-index: 99;
+  transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.8s;
+  transform: translateX(0%) translateY(-100%);
+}
+.navTest:after {
+  background: #f7f9f0;
+  transition-delay: 0s;
+}
+.navTest:before {
+  transition-delay: 0.1s;
+}
+.navTest__content {
+  position: fixed;
+  top: 50%;
+  transform: translate(0%, -50%);
+  width: 100%;
+  text-align: center;
+  font-size: calc(2vw + 10px);
+  font-weight: 200;
+  cursor: pointer;
+  z-index: 101;
+  color: #685648;
+}
+.navTest__list-item {
+  position: relative;
+  display: inline-block;
+  transition-delay: 0.8s;
+  opacity: 0;
+  transform: translate(0%, 100%);
+  transition: opacity 0.2s ease, transform 0.3s ease;
+  margin-right: 25px;
+}
+.navTest__list-item:before {
+  content: "";
+  position: absolute;
+  background: #685648;
+  width: 20px;
+  height: 1px;
+  top: 100%;
+  transform: translate(0%, 0%);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+.navTest__list-item:hover:before {
+  width: 100%;
+}
+
+body.nav-active .menu-icon__line {
+  background-color: #000;
+  transform: translateX(0px) rotate(-45deg);
+}
+body.nav-active .menu-icon__line-left {
+  transform: translateX(1px) rotate(45deg);
+}
+body.nav-active .menu-icon__line-right {
+  transform: translateX(-2px) rotate(45deg);
+}
+body.nav-active .navTest {
+  visibility: visible;
+}
+body.nav-active .navTest:before, body.nav-active .navTest:after {
+  transform: translateX(0%) translateY(0%);
+}
+body.nav-active .navTest:after {
+  transition-delay: 0.1s;
+}
+body.nav-active .navTest:before {
+  transition-delay: 0s;
+}
+body.nav-active .navTest__list-item {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+body.nav-active .navTest__list-item:nth-child(0) {
+  transition-delay: 0.5s;
+}
+body.nav-active .navTest__list-item:nth-child(1) {
+  transition-delay: 0.6s;
+}
+body.nav-active .navTest__list-item:nth-child(2) {
+  transition-delay: 0.7s;
+}
+body.nav-active .navTest__list-item:nth-child(3) {
+  transition-delay: 0.8s;
+}
+body.nav-active .navTest__list-item:nth-child(4) {
+  transition-delay: 0.9s;
+}
+
 .swiper-container {
   width: 100%;
   height: 80vh;
@@ -364,16 +547,6 @@ header {
   margin-bottom: 10vh !important;
 }
 
-.lazy {
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-.fade {
-  opacity: 1;
-  transition: opacity 1s;
-}
-
 .hour {
   color: #c3cb99;
   font-family: "brandon_grotesquelight";
@@ -533,7 +706,7 @@ header {
   position: absolute;
   object-fit: cover;
   margin-left: auto;
-  top: 50%;
+  top: 55%;
   left: -90%;
   width: 135%;
   max-height: 270px;
@@ -545,6 +718,8 @@ header {
   width: 59%;
   align-items: center;
   text-align: center;
+  position: relative;
+  top: 20px;
 }
 .container-relaxation-infos img {
   max-height: 151px;

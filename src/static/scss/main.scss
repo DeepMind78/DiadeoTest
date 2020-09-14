@@ -1,4 +1,5 @@
 $primary : #93a446;
+$secondary : #f7f9f0;
 // $font-container : 'linotype_didotroman';
 // $font-header : 'brandon_grotesquelight';
 
@@ -24,7 +25,10 @@ body{
 }
 
 
+
+@import "layout/loading-page";
 @import "layout/nav.scss";
+@import "layout/testNav.scss";
 @import "layout/header.scss";
 @import "layout/container-reveil.scss";
 @import "layout/container_relaxation.scss";

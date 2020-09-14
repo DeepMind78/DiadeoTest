@@ -8,15 +8,6 @@
 
 }
 
-.lazy{
-    opacity: 0;
-    transition: opacity 1s;
-}
-.fade{
-    opacity:1;
-    transition: opacity 1s;
-}
-
 .hour{
     color: #c3cb99;
     font-family: 'brandon_grotesquelight';
@@ -27,11 +18,8 @@
 }
 
 .container-titles{
-    // font-family: 'linotype_didotroman';
-    // font-family: 'brandon_grotesquelight';
     font-weight: bold;
     letter-spacing: 2px;
-    // font-size: 1.5vw;
     font-size: 20px;
 }
 
@@ -65,7 +53,6 @@
 .container-reveil{
     display: flex;
     width: 90%;
-    // height: 600px;
     margin:0 auto;
     justify-content: center;
     position: relative;
@@ -93,7 +80,6 @@
 .container-reveil-infos{
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     text-align: center;
     img{

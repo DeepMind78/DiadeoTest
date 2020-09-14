@@ -14,12 +14,21 @@
     
     
 </head>
-<body style="overflow:visible!important;">
-    <div class="nav">
-        <div id="burger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+
+
+<body class="loading" style="overflow:visible!important;">
+    <!-- Loading page -->
+    <div class="loading-logo">
+        <img src="./img/assets/logo.png" alt="">
+    </div>
+    <!-- Fin loading -->
+
+    <!-- Menu navbar -->
+    <div class="navigation">
+        <div class="menu-icon">
+            <span class="menu-icon__line menu-icon__line-left"></span>
+            <span class="menu-icon__line"></span>
+            <span class="menu-icon__line menu-icon__line-right"></span>
         </div>
         <div class="logo">
             <img src="./img/assets/logo.png" alt="logo">
@@ -28,9 +37,20 @@
             <span>RÉSERVER</span>
         </div>
     </div>
+    <div class="navTest">
+        <div class="navTest__content">
+            <ul class="navTest__list">
+                <li class="navTest__list-item">Home</li>
+                <li class="navTest__list-item">About</li>
+                <li class="navTest__list-item">Projects</li>
+                <li class="navTest__list-item">Contact</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Fin menu navbar -->
+
+    <!-- Header avec carousel -->
     <header>
-        
-        <!---->
         <div class="home-header">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -54,8 +74,11 @@
             <div>
         </div>
     </header>
+    <!-- Fin header avec carousel -->
 
+<!-- Partie centrale  -->
 <div class="container">
+     <!-- Première partie "reveil" -->
     <div class="container-reveil">
             <div class="images">
                 <img class="first-img lazy" data-src="./img/assets/Shoot1-433-15.jpg" alt="photo une, chambre d'hotel">
@@ -68,8 +91,10 @@
                 <p class="container-paragraph"> LAISSEZ LA NATURE VOUS RÉVEILLER TOUT EN DOUCEUR</p>
             </div>     
     </div>
+    <!-- Fin première partie -->
+    <!-- Deuxième partie relaxation -->
     <div class="container-relaxation">
-        <div class="container-relaxation-infos" data-bottom-top="transform:translate3d(0, 0px, 0)" data-top-bottom="transform:translate3d(0, -100px, 0)">
+        <div class="container-relaxation-infos" data-bottom-top="transform:translate3d(0, 0px, 0)" data-top-bottom="transform:translate3d(0, -110px, 0)">
             <p class="hour">11:07 </p>
             <h3 class="container-titles">DETENTE. RELAXATION. SILENCE.</h3>
             <p class="container-paragraph" > Se ressourcer, se retrouver... 
@@ -77,15 +102,17 @@
         </div>
         <div class="images">
             <img class="first-img lazy" data-src="./img/assets/chambre22-123-15.jpg" alt="photo panier">
-            <img class="lazy" data-src="./img/assets/YRshoot1-2322-15.jpg" alt="photo d'une femme relaxée" data-bottom-top="transform:translate3d(0, 0px, 0)" data-top-bottom="transform:translate3d(0, -140px, 0); ">
+            <img class="lazy" data-src="./img/assets/YRshoot1-2322-15.jpg" alt="photo d'une femme relaxée" data-bottom-top="transform:translate3d(0, 0px, 0)" data-top-bottom="transform:translate3d(0, -180px, 0); ">
         </div>
     </div>
+    <!-- Fin deuxième partie -->
 </div>
+<!-- Fin partie centrale -->
+
+<!-- Cards -->
 <div class="cards">
     <div class="card">
-        
         <div class="card-top">
-            
             <h3>NOËL À LA GRÉE DES LANDES</h3>
             <p>Le Bien-Être s'invite à Noël</p>
             <img class="lazy" data-src="./img/assets/offre1.jpg" alt="deux adultes qui trinquent">
@@ -155,11 +182,14 @@
         </div>
     </div>
 </div>
+<!-- Fin cards -->
+<!-- Footer avec logo -->
 <footer>
     <img class="lazy" data-src="./img/assets/logo.png" alt="logo">
 </footer>
+<!-- Fin footer -->
 
-
+<!-- Utilisation de swiper pour le carousel -->
     <script>
         var mySwiper = new Swiper('.swiper-container', {
             direction: 'horizontal',
@@ -180,10 +210,11 @@
           })
     </script>
     <script src="static/dist/js/script.js"></script>
+
+    <!-- Partie skrollr pour gestion du parallaxe selon taille de l'écran -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js" integrity="sha512-A2+khatRDWHUE2VUtN4xUTkr1nc4YfDBw9Sg3ea6x0aRPfpcYieDZji4D2edDHy/yF5NsYzP7kL8sSM8s5EqCw==" crossorigin="anonymous"></script>
     
     <script>
-        //  gestion parallax
   var width =  window.screen.width;
   if(width>670){
      skrollr.init();
@@ -194,7 +225,7 @@
   window.addEventListener('resize', function(){
 
       var widthWindow =  window.screen.width;
-      var _skrollr = skrollr.get(); // get() returns the skrollr 
+      var _skrollr = skrollr.get(); 
       
       if(widthWindow>670 && _skrollr == undefined){
           
@@ -207,7 +238,7 @@
       if(width<1000){
           mySwiper.autoplay.stop();
       }else {
-          mySwiper.autoplay.start ();
+          mySwiper.autoplay.start();
       }
       
   });
